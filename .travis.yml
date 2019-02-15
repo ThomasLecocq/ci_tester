@@ -78,7 +78,7 @@ install:
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
+  - conda update -q --override-channels -c conda-forge conda
   # Useful for debugging any issues with conda
   - conda info -a
   - |
@@ -140,7 +140,7 @@ install:
   - conda create -q -n test-environment
         python=$PYTHON_VERSION
         $SCIPY
-  - conda -q install -n test-environment --override-channels -c conda-forge
+  - conda install -q -n test-environment --override-channels -c conda-forge
         $NUMPY
         $MATPLOTLIB
         $BASEMAP
